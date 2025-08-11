@@ -1,0 +1,7 @@
+.admin-grid{min-height:100vh;display:grid;grid-template-columns:240px 1fr}
+.admin-aside{border-right:1px solid #e5e7eb;padding:16px;display:flex;flex-direction:column;gap:16px}
+.admin-brand{font-weight:700;font-size:20px}
+.admin-nav{display:flex;flex-direction:column;gap:8px}
+.admin-nav a{padding:8px;border-radius:8px}
+.admin-nav a:hover{background:#f3f4f6}
+.admin-main{padding:24px}
