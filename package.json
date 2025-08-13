@@ -1,44 +1,15 @@
 {
-  "name": "sale-page",
-  "version": "0.1.0",
+  "name": "minimal-shop",
   "private": true,
+  "workspaces": ["apps/*", "server", "packages/*"],
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@auth/prisma-adapter": "^2.10.0",
-    "@aws-sdk/client-s3": "^3.864.0",
-    "@aws-sdk/s3-request-presigner": "^3.864.0",
-    "@prisma/client": "^6.13.0",
-    "@radix-ui/react-slot": "^1.2.3",
-    "@tanstack/react-query": "^5.84.2",
-    "axios": "^1.11.0",
-    "bcrypt": "^6.0.0",
-    "bcryptjs": "^3.0.2",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "date-fns": "^4.1.0",
-    "jose": "^6.0.12",
-    "jsonwebtoken": "^9.0.2",
-    "next": "15.4.6",
-    "next-auth": "^4.24.11",
-    "next-intl": "^4.3.4",
-    "nodemailer": "^6.10.1",
-    "qs": "^6.14.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "tailwind-merge": "^3.3.1",
-    "zod": "^4.0.17"
+    "dev": "concurrently \"npm run dev --workspace=apps/client\" \"npm run dev --workspace=apps/admin\" \"npm run dev --workspace=server\"",
+    "build": "npm run build --workspace=apps/client && npm run build --workspace=apps/admin && npm run build --workspace=server",
+    "seed": "npm run seed --workspace=server"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.6",
-    "prisma": "^6.13.0",
-    "tailwindcss": "^4"
+    "concurrently": "^8.2.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0"
   }
 }
